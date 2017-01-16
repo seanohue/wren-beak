@@ -26,6 +26,30 @@ class Test {
     }
   }
 
+  assertListEqual(xs, ys, message) {
+    var equal = true
+    var i = 0
+
+    if (xs.count != ys.count) {
+      System.print("FAIL: %(xs) and %(ys) are not equal or even the same length after %(message)!")
+      return false
+    }
+
+    while (equal && i < xs.count) {
+      if (xs[i] != ys[i]) {
+        equal = false
+      }
+
+      i = i + 1
+    }
+
+    if (equal) {
+      System.print("GREAT SUCCESS: %(message)")
+    } else {
+      System.print("FAIL: %(xs) does not equal %(ys). %(message)")
+    }
+  }
+
   describe(description, specs) {
     System.print("Describe: %(description)")
     specs.call()
