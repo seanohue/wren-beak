@@ -21,9 +21,12 @@ class Beak {
   // Not sure if I got the point of this one.
   static findNth(n, xs) { xs[n] }
 
-  // 
-  static find(predicate, xs) {
-    
+  // Use a function that returns true or false to find an item in a list.
+  static find(xs, predicate) {
+    if (this.isEmpty(xs)) return null 
+    return predicate.call(this.head(xs)) ? 
+      this.head(xs) : 
+      this.find(this.tail(xs), predicate)
   }
 
 }

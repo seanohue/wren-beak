@@ -14,3 +14,12 @@ beakTest.describe("Core list functions") {
 
   beakTest.assertListEqual(Beak.cons(0, testList), [0, 1, 2, 3], "cons")
 }
+
+beakTest.describe("List searching functions") {
+  var testList = [1, "33", "potato"]
+  var found = Beak.find(testList) { |x| x == "33" }
+  beakTest.assert(found, "33", "Finding an item in a list")
+
+  var notFound = Beak.find(testList) { |x| x == "derp" }
+  beakTest.assert(notFound, null, "Failing to find an item")
+}
