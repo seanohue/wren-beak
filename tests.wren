@@ -23,3 +23,7 @@ beakTest.describe("List searching functions") {
   var notFound = Beak.find(testList) { |x| x == "derp" }
   beakTest.assert(notFound, null, "Failing to find an item")
 }
+
+beakTest.describe("List manipulation functions") {
+  
+}

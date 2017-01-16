@@ -29,4 +29,6 @@ class Beak {
       this.find(this.tail(xs), predicate)
   }
 
+  static reverse(xs) { xs[-1..0] }
+
 }
