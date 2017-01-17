@@ -15,6 +15,13 @@ class Beak {
     return ys
   }
 
+  // Append an item to the end of a list
+  static append(x, xs) { 
+    var ys = this.copy(xs)
+    ys.insert(-1, x)
+    return ys
+  }
+
   // Returns a copy of a list.
   static copy(xs) { xs[0..-1] }
 
@@ -29,9 +36,22 @@ class Beak {
       this.find(this.tail(xs), predicate)
   }
 
-  static reverse(xs) { 
-    if (this.isEmpty(xs)) return xs 
-    return xs
+  static reduce(xs, acc, fn) {
+    if (this.isEmpty(xs)) { 
+      return acc 
+    }
+    var newXs = this.tail(xs)
+    var newAcc = fn.call(this.head(xs), acc)
+    var reduced = this.reduce(newXs, newAcc, fn)
+    return reduced
+  }
+
+  static reverse(xs) {
+    var reversed = this.reduce(xs, []) { |x, acc|
+      return this.cons(x, acc)
+    }
+
+    return reversed
   }
 
 }

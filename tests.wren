@@ -28,6 +28,25 @@ beakTest.describe("List manipulation functions") {
   var testList = [1, 2, 3]
   var reversed = [3, 2, 1]
 
+  var mapped = Beak.reduce(testList, []) { |x, acc|
+    var y = x + 1
+    return Beak.cons(y, acc)
+  }
+
+  beakTest.assertListEqual(mapped, [2, 3, 4], "Reduce higher-order function")
+
   beakTest.assertListEqual(Beak.reverse(testList), reversed, "Reversing a list")
   beakTest.assertListEqual(Beak.reverse([]), [], "Reversing empty list")
+}
+
+beakTest.describe("Higher order functions") {
+  var testList = [1, 2, 3]
+
+  var mapped = Beak.reduce(testList, []) { |x, acc|
+    var y = x + 1
+    return Beak.append(y, acc)
+  }
+
+  beakTest.assertListEqual(mapped, [2, 3, 4], "Reduce")
+
 }
