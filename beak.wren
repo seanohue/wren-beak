@@ -62,4 +62,11 @@ class Beak {
     return reversed
   }
 
+  static concat(xs, ys) {
+    var zs = this.copy(xs)
+    return this.reduce(ys, zs) { |y, acc|
+      return this.append(y, acc)
+    }
+  }
+
 }

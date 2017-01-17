@@ -30,6 +30,12 @@ beakTest.describe("List manipulation functions") {
 
   beakTest.assertListEqual(Beak.reverse(testList), reversed, "Reversing a list")
   beakTest.assertListEqual(Beak.reverse([]), [], "Reversing empty list")
+
+  var a = [1, 3]
+  var b = [2, 4]
+
+  beakTest.assertListEqual(Beak.concat(a, b), [1, 3, 2, 4], "Concatenating two lists")
+
 }
 
 beakTest.describe("Higher order functions") {
