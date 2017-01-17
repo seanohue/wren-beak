@@ -46,6 +46,11 @@ class Beak {
     return reduced
   }
 
+  static map(xs, fn) {
+    var mapped = this.reduce(xs, []) { |x, acc| this.append(fn.call(x), acc) }
+    return mapped
+  }
+
   static reverse(xs) {
     var reversed = this.reduce(xs, []) { |x, acc|
       return this.cons(x, acc)
