@@ -35,7 +35,8 @@ class Beak {
       this.head(xs) : 
       this.find(this.tail(xs), predicate)
   }
-
+  
+  // Reduce/fold a list into an accumulator.
   static reduce(xs, acc, fn) {
     if (this.isEmpty(xs)) { 
       return acc 
@@ -46,11 +47,13 @@ class Beak {
     return reduced
   }
 
+  // Map over a list, implemented using reduce.
   static map(xs, fn) {
     var mapped = this.reduce(xs, []) { |x, acc| this.append(fn.call(x), acc) }
     return mapped
   }
 
+  // Reverse a list, implemented using reduce.
   static reverse(xs) {
     var reversed = this.reduce(xs, []) { |x, acc|
       return this.cons(x, acc)
