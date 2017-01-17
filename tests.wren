@@ -35,7 +35,7 @@ beakTest.describe("List manipulation functions") {
   var b = [2, 4]
 
   beakTest.assertListEqual(Beak.concat(a, b), [1, 3, 2, 4], "Concatenating two lists")
-
+  beakTest.assertListEqual(Beak.concat([], []), [], "Concatenating empty lists")
 }
 
 beakTest.describe("Higher order functions") {
