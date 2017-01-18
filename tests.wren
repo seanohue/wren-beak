@@ -58,4 +58,13 @@ beakTest.describe("Higher order functions") {
   
   var iterated = Beak.iter(10, 0) { |x| x + 1 }
   beakTest.assert(iterated, 10, "Function iteration")
+
+  var addOne = Fn.new { |x| x + 1 }
+  var timesThree = Fn.new { |x| x * 3 }
+  var composed = Beak.compose([addOne, timesThree], 2)
+  beakTest.assert(composed, 9, "Function composition")
+
+  var partiallyComposed = Beak.compose([addOne, timesThree])
+  var fullyComposed = partiallyComposed.call(4)
+  beakTest.assert(fullyComposed, 15, "Partially applied function composition")
 }

@@ -90,4 +90,13 @@ class Beak {
       fn.call(x)
   }
 
+  // Pass a list of functions and a single data point to run them on.
+  static compose(fns, x) {
+    return this.reduce(fns, x) { |fn, x| fn.call(x) }
+  }
+
+  static compose(fns) {
+    return Fn.new { |x| this.compose(fns, x) }
+  }
+
 }
