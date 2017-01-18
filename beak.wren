@@ -1,13 +1,14 @@
 class Beak {
   constructor() {}
 
-  // First or last item of list.
+  // First item of list.
   static head(xs) { 
     return isEmpty(xs) ? 
       [] : 
       xs[0] 
   }
   
+  // Rest of list after first item.
   static tail(xs) { 
     return isEmpty(xs) ?
       [] : 
