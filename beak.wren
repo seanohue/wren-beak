@@ -25,8 +25,15 @@ class Beak {
   // Returns a copy of a list.
   static copy(xs) { xs[0..-1] }
 
-  // Not sure if I got the point of this one.
-  static findNth(n, xs) { xs[n] }
+  // Recursively and safely searches a list for the nth index.
+  static findNth(n, xs) { 
+    if (n < 1) { 
+      return this.head(xs) 
+    }
+    return this.isEmpty(this.tail(xs)) ?
+      null :
+      this.findNth(n - 1, this.tail(xs))
+  }
 
   // Use a function that returns true or false to find an item in a list.
   static find(xs, predicate) {
