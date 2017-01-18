@@ -68,6 +68,11 @@ class Beak {
     return this.reduce(xs, []) { |x, acc| this.append(fn.call(x), acc) }
   }
 
+  // Filter items from a list
+  static filter(xs, predicate) {
+    return this.reduce(xs, []) { |x, acc| predicate.call(x) ? this.append(x, acc) : acc }
+  }
+
   // Reverse a list, implemented using reduce.
   static reverse(xs) { 
     return this.reduce(xs, []) { |x, acc| this.cons(x, acc) }

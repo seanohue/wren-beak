@@ -53,4 +53,7 @@ beakTest.describe("Higher order functions") {
   beakTest.assertListEqual(mapped, [2, 3, 4], "Reduce")
   beakTest.assertListEqual(mapped2, [2, 3, 4], "Map")
 
+  var filtered = Beak.filter(testList) { |x| (x % 2) == 0 }
+  beakTest.assertListEqual(filtered, [2], "Filter")
+
 }
