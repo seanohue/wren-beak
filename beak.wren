@@ -70,12 +70,8 @@ class Beak {
   }
 
   // Reverse a list, implemented using reduce.
-  static reverse(xs) {
-    var reversed = this.reduce(xs, []) { |x, acc|
-      return this.cons(x, acc)
-    }
-
-    return reversed
+  static reverse(xs) { 
+    return this.reduce(xs, []) { |x, acc| this.cons(x, acc) }
   }
 
   // Concatenate two lists.
