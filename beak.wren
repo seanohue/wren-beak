@@ -83,4 +83,11 @@ class Beak {
     return this.reduce(ys, this.copy(xs)) { |y, acc| this.append(y, acc) }
   }
 
+  // Recursively iterates over x, calling fn on it n number of times.
+  static iter(n, x, fn) {
+    return n > 1 ? 
+      this.iter(n - 1, fn.call(x), fn) :
+      fn.call(x)
+  }
+
 }

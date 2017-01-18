@@ -55,5 +55,7 @@ beakTest.describe("Higher order functions") {
 
   var filtered = Beak.filter(testList) { |x| (x % 2) == 0 }
   beakTest.assertListEqual(filtered, [2], "Filter")
-
+  
+  var iterated = Beak.iter(10, 0) { |x| x + 1 }
+  beakTest.assert(iterated, 10, "Function iteration")
 }
