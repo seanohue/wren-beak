@@ -95,6 +95,7 @@ class Beak {
     return this.reduce(fns, x) { |fn, x| fn.call(x) }
   }
 
+  // Pass a list of functions, and get a lambda that can take a single param.
   static compose(fns) {
     return Fn.new { |x| this.compose(fns, x) }
   }
