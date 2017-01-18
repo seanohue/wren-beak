@@ -59,14 +59,12 @@ class Beak {
     }
     var newXs = this.tail(xs)
     var newAcc = fn.call(this.head(xs), acc)
-    var reduced = this.reduce(newXs, newAcc, fn)
-    return reduced
+    return this.reduce(newXs, newAcc, fn)
   }
 
   // Map over a list, implemented using reduce.
   static map(xs, fn) {
-    var mapped = this.reduce(xs, []) { |x, acc| this.append(fn.call(x), acc) }
-    return mapped
+    return this.reduce(xs, []) { |x, acc| this.append(fn.call(x), acc) }
   }
 
   // Reverse a list, implemented using reduce.
