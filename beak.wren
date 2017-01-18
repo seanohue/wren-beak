@@ -2,8 +2,17 @@ class Beak {
   constructor() {}
 
   // First or last item of list.
-  static head(xs) { xs[0] }
-  static tail(xs) { xs[1..-1] }
+  static head(xs) { 
+    return isEmpty(xs) ? 
+      [] : 
+      xs[0] 
+  }
+  
+  static tail(xs) { 
+    return isEmpty(xs) ?
+      [] : 
+      xs[1..-1] 
+  }
 
   // Is the list empty?
   static isEmpty(xs) { xs.count == 0 }

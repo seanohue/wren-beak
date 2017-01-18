@@ -12,6 +12,8 @@ beakTest.describe("Core list functions") {
   beakTest.assert(Beak.isEmpty(testList), false, "isEmpty on non-empty")
   beakTest.assert(Beak.isEmpty([]), true, "isEmpty on empty list")
 
+  beakTest.assert(Beak.findNth(33, []), null, "Safely finds nth of list without out of bounds error")
+
   beakTest.assertListEqual(Beak.cons(0, testList), [0, 1, 2, 3], "cons")
 }
 
