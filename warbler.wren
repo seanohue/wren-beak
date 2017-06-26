@@ -7,9 +7,9 @@ class Test {
     System.print("Testing %(unitTitle).")
     _title = unitTitle
   }
-  
+
   assert { true }
-  
+
   assert(actual, expected) {
     if (actual != expected) {
       System.print("FAIL: %(actual) was not %(expected) in %(_title).")
