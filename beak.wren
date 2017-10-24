@@ -46,7 +46,7 @@ class Beak {
   }
 
   // Use a function that returns true or false to find an item in a list.
-  static find(xs, predicate) {
+  static find(predicate, xs) {
     if (this.isEmpty(xs)) return null
     return predicate.call(this.head(xs)) ?
       this.head(xs) :
@@ -54,22 +54,24 @@ class Beak {
   }
 
   // Reduce/fold a list into an accumulator.
-  static reduce(xs, acc, fn) {
+  static reduce(fn, acc, xs) {
     if (this.isEmpty(xs)) {
       return acc
     }
     var newXs = this.tail(xs)
     var newAcc = fn.call(this.head(xs), acc)
-    return this.reduce(newXs, newAcc, fn)
+    return this.reduce(fn, newAcc, xs)
   }
 
+  // FIXME
   // Map over a list, implemented using reduce.
-  static map(xs, fn) {
+  static map(fn, xs) {
     return this.reduce(xs, []) { |x, acc| this.append(fn.call(x), acc) }
   }
 
+  // FIXME
   // Filter items from a list
-  static filter(xs, predicate) {
+  static filter(predicate, xs) {
     return this.reduce(xs, []) { |x, acc| predicate.call(x) ? this.append(x, acc) : acc }
   }
 
@@ -78,11 +80,13 @@ class Beak {
     return this.reduce(xs, []) { |x, acc| this.cons(x, acc) }
   }
 
+  // FIXME
   // Concatenate two lists.
   static concat(xs, ys) {
     return this.reduce(ys, this.copy(xs)) { |y, acc| this.append(y, acc) }
   }
 
+  // FIXME
   // Recursively iterates over x, calling fn on it n number of times.
   static iter(n, x, fn) {
     return n > 1 ?
