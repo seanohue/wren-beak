@@ -55,7 +55,7 @@ beakTest.describe("Higher order functions") {
 
   var filtered = Beak.filter(testList) { |x| (x % 2) == 0 }
   beakTest.assertListEqual(filtered, [2], "Filter")
-  
+
   var iterated = Beak.iter(10, 0) { |x| x + 1 }
   beakTest.assert(iterated, 10, "Function iteration")
 
@@ -67,4 +67,14 @@ beakTest.describe("Higher order functions") {
   var partiallyComposed = Beak.compose([addOne, timesThree])
   var fullyComposed = partiallyComposed.call(4)
   beakTest.assert(fullyComposed, 15, "Partially applied function composition")
+
+  var toTakeFrom = [1, 2, 3, 4]
+  var takenFrom = Beak.take(2, toTakeFrom)
+  beakTest.assertListEqual(takenFrom, [1, 2], "Taking elements from list")
+
+  var takeNegative = Beak.take(-3, toTakeFrom)
+  beakTest.assertListEqual(takeNegative, [], "Taking negative elements from list")
+
+  var takeTooMuch = Beak.take(100, toTakeFrom)
+  beakTest.assertListEqual(takeTooMuch, toTakeFrom, "Taking more elements from list than are present")
 }

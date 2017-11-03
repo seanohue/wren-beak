@@ -99,4 +99,14 @@ class Beak {
     return Fn.new { |x| compose(fns, x) }
   }
 
+  static take(n, xs) {
+    var taken = n > xs.count ?
+      (xs.count - 1) :
+      (n - 1)
+
+    return taken < 0 ?
+      [] :
+      xs[0..taken]
+  }
+
 }
